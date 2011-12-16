@@ -10,13 +10,13 @@ UserData is a behavior that provides an xml based persistence layer in Internet 
 What is localStorage?
 ---------------------
 DOM Storage is the name given to the set of storage-related features first introduced in the Web Applications 1.0 specification, and now split off into its own W3C Web Storage specification. DOM Storage is designed to provide a larger, securer, and easier-to-use alternative to storing information in cookies. Data placed in localStorage is per domain (it's available to all scripts from the domain that originally stored the data) and persists after the browser is closed.
-MDN: https://developer.mozilla.org/en/DOM/Storage
-Spec: http://dev.w3.org/html5/webstorage/
+> MDN: https://developer.mozilla.org/en/DOM/Storage
+> Spec: http://dev.w3.org/html5/webstorage/
 
 UserData Limitations
 --------------------
-64kb - 128kb storage limit per ***path*** (max 640kb - 1024kb per domain).
-Synchronous access to data (meaning data isn't available immediately on page load).
+> 64kb - 128kb storage limit per ***path*** (max 640kb - 1024kb per domain).
+> Synchronous access to data (meaning data isn't available immediately on page load).
 
 Note regarding the path limitation
 ------------------------
