@@ -49,3 +49,7 @@ Example
         localStorage.setItem('test', 'hello');
       }
     </script>
+
+p.s.
+----
+I'm open to critques/ideas so hit me up if you have them: twitter.com/mattpowell (or in the issues tab ;)
