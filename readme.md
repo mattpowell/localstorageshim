@@ -41,7 +41,7 @@ TODO
 Example
 -------
     <!--[if lte IE 7]>
-        <script src="localstorageshim.js" type="text/javascript" id="ie-localstorage-shim"></script>
+        <script src="localstorageshim.min.js" type="text/javascript" id="ie-localstorage-shim"></script>
     <![endif]-->
     <script type="text/javascript">
       window.onload = function() {
@@ -52,4 +52,4 @@ Example
 
 p.s.
 ----
-I'm open to critques/ideas so hit me up if you have them: twitter.com/mattpowell (or in the issues tab ;)
+I'm open to critiques/ideas so hit me up if you have them: twitter.com/mattpowell (or in the issues tab ;)
