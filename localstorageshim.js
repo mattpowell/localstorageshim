@@ -41,7 +41,7 @@ PGh0bWw+PGhlYWQ+PHRpdGxlPjwvdGl0bGU+PC9oZWFkPjxib2R5PjxiIGlkPSJsb2NhbHN0b3JhZ2Ut
     return key ? 'ie' + key.replace(/[^-._0-9A-Za-z\xb7\xc0-\xd6\xd8-\xf6\xf8-\u037d-\u1fff\u200c-\u200d\u203f\u2040\u2070-\u218f]/g, '-' ) : key ;
   }
   function uncleanStorageKey(key) {
-    //for the moment we can only get ride of the 'ie' prefix
+    //for the moment we can only get rid of the 'ie' prefix
     return key ? key.replace(/^ie/,'') : key;
   }
   function createLocalStorageObject() {
