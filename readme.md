@@ -19,11 +19,11 @@ UserData Limitations
 --------------------
 64kb - 128kb storage limit per ***path*** (max 640kb - 1024kb per domain).
 
-Synchronous access to data (meaning data isn't available immediately on page load).
+Asynchronous-ish access to data (meaning data isn't necessarily available immediately on page load).
 
 Note regarding the path limitation
 ------------------------
-Data saved via UserData is only available on the url path it was originally saved from. So, data stored at example.com/path1/ is unavailable from example.com/path2/. That sucks and would make UserData useless as shim for localStorage. BUT, there's a way around this. If we setup the script to dynamically insert an invisible iframe with a static path then we have a consistent point from which to store and access data. Whoo! But what do we use as that static path? We have to keep in mind that the iframe will load the static url so it'd be bad to load an entirely new html page (keep in mind IE6/7 is limited to 2 parallel connections per host). Also, we should try to load something that's fast and already cached. Bam, favicon.ico fits the bill. And IE6/7 is one of those browsers that automatically requests /favicon.ico even if you didn't specify it in a `rel='icon'` link. But, what happens if it's not cached? Or even worse, if it's 404 page?! This is where it gets next level. Are you ready? We're going to reference the script that originally included the shim (thus the id in the example below). Dang, but, when you point an iframe to a .js file IE tries to download it. Say hello to my little friend: MHTML. I'm tired of writing, so, I'm going to cut to the chase. We're referencing base64 encoded html that's already been cached inside localstorageshim.js. It's actually really ~~clever~~ tricky... if you want to know more, let me know :)
+Data saved via UserData is only available on the url path it was originally saved from. So, data stored at example.com/path1/ is unavailable from example.com/path2/. That sucks and would make UserData useless as shim for localStorage, BUT, there's a way around this. If we setup the script to dynamically insert an invisible iframe with a static path then we have a consistent point from which to store and access data. Whoo! But what do we use as that static path? We have to keep in mind that the iframe will load the static url so it'd be bad to load an entirely new html page (keep in mind IE6/7 is limited to 2 parallel connections per host). Also, we should try to load something that's fast and already cached. Bam, favicon.ico fits the bill. And IE6/7 is one of those browsers that automatically requests /favicon.ico even if you didn't specify it in a `rel='icon'` link. But, what happens if it's not cached? Or even worse, if it's 404 page?! This is where it gets next level. Are you ready? We're going to reference the script that originally included the shim (thus the id in the example below). Dang, but when you point an iframe to a .js file IE tries to download it. Say hello to my little friend: MHTML. I'm tired of writing, so, I'm going to cut to the chase. We're referencing base64 encoded html that's already been cached inside localstorageshim.js. It's actually really ~~clever~~ tricky... if you want to know more, let me know :)
 
 Size
 ----
@@ -33,7 +33,7 @@ Size
 
 TODO
 ----
-* Try to make access to data more asynchronous and minimize race conditions.
+* Try to make access to data more synchronous and minimize race conditions.
 * Reduce the amount of try/catches
 * Reduce usage of `syncStoredKeys`. Or at least try to make it more performant.
 * Provide persistence for this type of usage: `localStorage.myProp = 'val';` (which is the same as: `localStorage.setItem('myProp','val');`)
